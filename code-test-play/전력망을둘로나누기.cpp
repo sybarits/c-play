@@ -35,15 +35,7 @@ int getSizeDiff(vector<vector<bool>> &grid) {
     vector<bool> visited(grid.size()+1, false);
     int start = 1;
     int size1 = BFS(start, grid, visited);
-
-    for (int i = 1; i <= visited.size(); i++) {
-        if (!visited[i]) {
-            start = i;
-            break;
-        }
-    }
-
-    int size2 = BFS(start, grid, visited);
+    int size2 = grid.size() - size1 -1;
     return abs(size1 - size2);
 }
 
